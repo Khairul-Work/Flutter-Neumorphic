@@ -1,13 +1,10 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
 @immutable
 class ColorSelector extends StatelessWidget {
-  final Color color;
-  final ValueChanged<Color> onColorChanged;
+  final Color? color;
+  final ValueChanged<Color>? onColorChanged;
   final double height;
   final double width;
 
@@ -42,14 +39,13 @@ class ColorSelector extends StatelessWidget {
             title: const Text('Pick a color!'),
             content: SingleChildScrollView(
               child: ColorPicker(
-                pickerColor: color,
-                onColorChanged: this.onColorChanged,
-                showLabel: true,
+                pickerColor: color!,
+                onColorChanged: this.onColorChanged!,
                 pickerAreaHeightPercent: 0.8,
               ),
             ),
             actions: <Widget>[
-              FlatButton(
+              TextButton(
                 child: const Text('Close'),
                 onPressed: () {
                   Navigator.of(context).pop();
